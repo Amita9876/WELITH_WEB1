@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="login-container">
+
+    <!-- LEFT SIDE IMAGE -->
+    <div class="login-image">
+        <img src="https://storyset.com/illustration/online-doctor/rafiki#default&hide=&hide=simple" alt="signup illustration">
+        <h2>Join Our Fitness Community 💪</h2>
+        <p>Track workouts, get AI diet plans and grow stronger every day.</p>
+    </div>
+
+    <!-- SIGNUP CARD -->
+    <div class="glass-card login-card">
+
+        <h2>Create Account 🚀</h2>
+
+        <form method="POST">
+
+            <!-- USERNAME -->
+            <div class="input-box">
+                <span>👤</span>
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+
+            <!-- EMAIL -->
+            <div class="input-box">
+                <span>📧</span>
+                <input type="email" name="email" placeholder="Email">
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="input-box">
+                <span>🔒</span>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <span class="show-pass" onclick="togglePassword()">👁</span>
+            </div>
+
+            <button class="btn">Sign Up</button>
+
+        </form>
+
+        <div class="divider">or sign up with</div>
+
+        <div class="social-login">
+            <button class="google">Continue with Google</button>
+            <button class="github">Continue with GitHub</button>
+        </div>
+
+        <p class="bottom-text">
+            Already have an account?
+            <a href="/login">Login</a>
+        </p>
+
+    </div>
+
+</div>
+
+<script>
+function togglePassword(){
+    const pass = document.getElementById("password");
+
+    if(pass.type === "password"){
+        pass.type = "text";
+    } else {
+        pass.type = "password";
+    }
+}
+</script>
+
+{% endblock %}

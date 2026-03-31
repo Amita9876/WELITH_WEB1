@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="center-container">
+    <div class="glass-card">
+        <h2>AI Health Assistant 🤖</h2>
+
+        <form method="POST">
+            <input type="text" name="message" placeholder="Ask about your health..." required>
+            <button class="btn">Ask AI</button>
+        </form>
+{% extends "base.html" %}
+{% block content %}
+
+<div class="center-container">
+    <div class="glass-card">
+        <h2>AI Health Assistant 🤖</h2>
+
+        <form method="POST">
+            <input type="text" name="message" placeholder="Ask about fitness, diet, goals..." required>
+            <button class="btn">Ask AI</button>
+        </form>
+
+        {% if response %}
+            <div class="ai-response">
+                <p>{{ response }}</p>
+            </div>
+        {% endif %}
+
+        <h3>Chat History</h3>
+
+        {% if chats %}
+            {% for chat in chats %}
+                <div class="chat-entry">
+                    <p><strong>You:</strong> {{ chat.user_message }}</p>
+                    <p><strong>AI:</strong> {{ chat.ai_response }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No previous chats.</p>
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}
+        {% if response %}
+            <p style="margin-top:20px;">{{ response }}</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

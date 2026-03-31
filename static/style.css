@@ -1,0 +1,332 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Animated Background */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(-45deg, #00c6ff, #0072ff, #6a11cb, #2575fc);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    min-height: 100vh;
+    color: white;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ffd369;
+}
+
+/* Center Container */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+/* Glass Card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 40px;
+    width: 350px;
+    border-radius: 15px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+/* Button */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #ffd369;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: white;
+    transform: scale(1.05);
+}
+
+/* Bottom Text */
+.bottom-text {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.bottom-text a {
+    color: #ffd369;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.dashboard-container {
+    padding: 40px;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    flex: 1;
+    min-width: 200px;
+    padding: 25px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+    text-align: center;
+    transition: 0.4s;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.chart-card {
+    margin-top: 40px;
+    padding: 30px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.15);
+}
+
+.ai-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #ffd369;
+    color: black;
+    padding: 18px;
+    border-radius: 50%;
+    font-size: 22px;
+    text-decoration: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.ai-button:hover {
+    transform: scale(1.1);
+}
+
+.light-mode {
+    background: #f4f4f4;
+    color: black;
+}
+
+.light-mode .stat-card,
+.light-mode .chart-card {
+    background: white;
+}
+
+.badge {
+    background: gold;
+    color: black;
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+/* Full Page Background */
+
+.hero{
+    height: 100vh;
+    background: linear-gradient(
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.6)
+    ),
+    url("https://images.unsplash.com/photo-1554284126-aa88f22d8b74");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* Glass Card */
+
+.hero-content{
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 50px;
+    border-radius: 15px;
+    color: white;
+    width: 60%;
+}
+
+
+/* Title */
+
+.hero-content h1{
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+
+/* Text */
+
+.hero-content p{
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+/* Secondary Button */
+
+.secondary{
+    background: transparent;
+    border: 2px solid white;
+}
+
+.secondary:hover{
+    background: white;
+    color: black;
+}
+
+.secondary:hover{
+    background: white;
+    color: black;
+}
+
+/* ==============================
+LOGIN PAGE STYLING
+============================== */
+
+.login-container{
+    display:flex;
+    height:90vh;
+    align-items:center;
+    justify-content:center;
+    gap:50px;
+}
+
+/* LEFT SIDE IMAGE */
+
+.login-image{
+    width:350px;
+    text-align:center;
+}
+
+.login-image img{
+    width:200px;
+    margin-bottom:20px;
+}
+
+/* LOGIN CARD */
+
+.login-card{
+    width:380px;
+}
+
+/* INPUT BOX */
+
+.input-box{
+    display:flex;
+    align-items:center;
+    background:white;
+    padding:10px;
+    border-radius:8px;
+    margin-bottom:15px;
+}
+
+.input-box span{
+    margin-right:10px;
+}
+
+.input-box input{
+    border:none;
+    outline:none;
+    flex:1;
+}
+
+/* SHOW PASSWORD */
+
+.show-pass{
+    cursor:pointer;
+}
+
+/* DIVIDER */
+
+.divider{
+    text-align:center;
+    margin:20px 0;
+    opacity:0.7;
+}
+
+/* SOCIAL LOGIN */
+
+.social-login button{
+    width:100%;
+    margin-bottom:10px;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.google{
+    background:#ea4335;
+    color:white;
+}
+
+.github{
+    background:black;
+    color:white;
+}

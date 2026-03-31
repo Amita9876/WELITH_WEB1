@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="login-container">
+
+    <!-- Left Side Illustration -->
+    <div class="login-image">
+        <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png">
+        <h2>Track Your Health with AI</h2>
+        <p>Login to access your fitness dashboard and AI coach</p>
+    </div>
+
+
+    <!-- Right Side Login Form -->
+    <div class="glass-card login-card">
+
+        <h2>Welcome Back 👋</h2>
+        <p class="subtitle">Login to continue your fitness journey</p>
+
+        <form method="POST">
+
+            <div class="input-box">
+                <span>👤</span>
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+
+            <div class="input-box">
+                <span>🔒</span>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <span class="show-pass" onclick="togglePassword()">👁</span>
+            </div>
+
+            <button class="btn login-btn">Login</button>
+
+        </form>
+
+        <div class="divider">
+            <span>OR</span>
+        </div>
+
+        <div class="social-login">
+            <button class="google">Login with Google</button>
+            <button class="github">Login with GitHub</button>
+        </div>
+
+        <p class="bottom-text">
+            Don't have an account?
+            <a href="/signup">Sign Up</a>
+        </p>
+
+    </div>
+
+</div>
+
+<script>
+function togglePassword() {
+    const pass = document.getElementById("password");
+
+    if (pass.type === "password") {
+        pass.type = "text";
+    } else {
+        pass.type = "password";
+    }
+}
+</script>
+
+{% endblock %}

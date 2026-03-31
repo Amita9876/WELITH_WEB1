@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="dashboard-container">
+
+<h1>Fitness Courses</h1>
+
+<div class="cards">
+
+{% for course in courses %}
+
+<div class="stat-card">
+
+<h3>{{course.title}}</h3>
+
+<p>{{course.description}}</p>
+
+<h2>₹ {{course.price}}</h2>
+
+<a href="/buy-course/{{course.id}}" class="btn">Buy Course</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+{% endblock %}
