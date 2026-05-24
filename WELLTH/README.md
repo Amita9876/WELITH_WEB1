@@ -12,12 +12,17 @@ WELLTH is a multi-page marketing website for a fitness and wellness brand. It pr
 
 ## Pages
 
+
+## Pages
+
 | Page | File | Description |
 |------|------|-------------|
-| Home | `index.html` | Hero section, features overview, and call-to-action |
-| Pricing | `pricing.html` | Monthly/annual billing toggle, plan cards, FAQ accordion |
-| Trainers | `trainers.html` | Trainer profiles with specialty filters |
-
+|Home	| `wellth-home.html` |Hero section, features overview, and call-to-action|
+|Workout	|wellth-workout.html |Guided fitness routines, personalized workout plans, and progress tracking|
+|Professionals	|wellth-professionals.html|	Certified health experts directory with consultation options|
+|Meals	|wellth-meals.html|	Healthy meal plans, recipes, and nutrition guidance|
+|Budgeting	|wellth-budgeting.html|	Financial wellness tools, budgeting insights, and savings strategies|
+|Login	|wellth-login.html|	Secure user login and account management |
 ---
 
 ## Features
@@ -48,13 +53,9 @@ wellth/
 ├── wellth-meals.html
 ├── wellth-budgeting.html
 ├── wellth-login.html
-├── css/
-│   └── style.css
-├── js/
-│   └── main.js
 └── assets/
-    └── meals
-    └── professionals
+    ├──  meals
+    ├──  professionals
     └── worouts
 
 
