@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Professionals & Trainers - WELLTH</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy: #1a2332;
+      --white: #ffffff;
+      --off-white: #f8f6f3;
+      --sage: #b7bea0;
+      --sage-light: #d6dbc8;
+      --sage-pale: #eef0e8;
+      --blush: #e8d1c3;
+      --blush-light: #f5ebe4;
+      --blue-mist: #abb5b6;
+      --charcoal: #2a2a2a;
+      --mid-grey: #6b7280;
+      --light-grey: #e5e7eb;
+      --teal: #2ec4b6;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'DM Sans', sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--charcoal);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── Section padding ── */
+    .section-pad {
+      padding-left: 5rem;
+      padding-right: 5rem;
+    }
+
+    @media (max-width: 1199.98px) {
+      .section-pad {
+        padding-left: 3rem;
+        padding-right: 3rem;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .section-pad {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+    }
+
+
+    /* ══════════════════════════════════════════
+       NAVBAR
+   ***********/
+    .wellth-nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--light-grey);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .wellth-nav.scrolled {
+      box-shadow: 0 2px 20px rgba(26, 35, 50, 0.08);
+    }
+
+    .wellth-nav .container-fluid {
+      padding: 0 2.5rem;
+    }
+
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1.55rem;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      color: var(--navy);
+      padding-top: 0.85rem;
+      padding-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-logo .teal {
+      color: var(--teal);
+    }
+
+    img.logo-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sage);
+      font-family: var(--font-sans);
+      width: 60px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      padding: 0.55rem 1.1rem;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .navbar-nav .nav-item .nav-link:hover,
+    .navbar-nav .nav-item .nav-link.active {
+      background: var(--sage-light);
+      color: var(--navy);
+    }
+
+    .nav-login {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--navy);
+      text-decoration: none;
+      padding: 0.5rem 1.1rem;
+      border: 1.5px solid var(--navy);
+      border-radius: 50px;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-login:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .navbar-toggler {
+      border: none;
+      padding: 0.3rem;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%231a2332' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* ══════════════════════════════════════════
+       PAGE HERO
+   ***********/
+    .page-hero {
+      background: linear-gradient(135deg, var(--sage-pale) 0%, var(--blush-light) 100%);
+      padding: 5rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      top: -200px;
+      right: -100px;
+      pointer-events: none;
+    }
+
+    .page-hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+
+    .page-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 5vw, 3.75rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .page-hero h1 em {
+      font-style: italic;
+      color: var(--sage);
+    }
+
+    .page-hero p {
+      font-size: 1.05rem;
+      color: var(--mid-grey);
+      max-width: 500px;
+      line-height: 1.75;
+    }
+
+    /* Stats row inside hero */
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .hero-stat span {
+      font-size: 0.78rem;
+      color: var(--mid-grey);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 0.2rem;
+      display: block;
+    }
+
+    /* ══════════════════════════════════════════
+       FILTER BAR
+   ***********/
+    .filter-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--light-grey);
+      padding: 1.25rem 0;
+      position: sticky;
+      top: 65px;
+      z-index: 100;
+    }
+
+    .filter-pills {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .filter-pill {
+      padding: 0.5rem 1.4rem;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1.5px solid var(--light-grey);
+      background: var(--white);
+      color: var(--charcoal);
+      transition: all 0.2s;
+    }
+
+    .filter-pill.active {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+
+    .filter-pill:not(.active):hover {
+      border-color: var(--sage);
+      color: var(--navy);
+    }
+
+    .filter-count {
+      margin-left: auto;
+      font-size: 0.82rem;
+      color: var(--mid-grey);
+      white-space: nowrap;
+    }
+
+    /* ══════════════════════════════════════════
+       PROFESSIONALS GRID
+   ***********/
+    .professionals-grid {
+      padding: 4rem 0 6rem;
+      background: var(--off-white);
+    }
+
+    .pro-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--light-grey);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pro-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(26, 35, 50, 0.1);
+    }
+
+    .pro-card-photo {
+      height: 380px;
+      background: var(--light-grey);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      border-top-left-radius: 19px;
+      border-top-right-radius: 19px;
+      flex-shrink: 0;
+    }
+
+    .pro-card-photo img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* Subtle colour tints per type */
+    .pro-card-photo.tint-trainer {
+      background: linear-gradient(135deg, #dbeafe, #e0e7ff);
+    }
+
+    .pro-card-photo.tint-nutritionist {
+      background: linear-gradient(135deg, #fce7f3, #f5ebe4);
+    }
+
+    .pro-card-photo.tint-coach {
+      background: linear-gradient(135deg, #d1fae5, #eef0e8);
+    }
+
+    .pro-card-photo-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: #bbb;
+    }
+
+    .pro-card-photo-inner i {
+      font-size: 3rem;
+    }
+
+    .pro-card-photo-inner span {
+      font-size: 0.75rem;
+    }
+
+    .pro-card-body {
+      padding: 1.4rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .pro-card-type {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.85rem;
+      border-radius: 50px;
+      margin-bottom: 0.85rem;
+      width: fit-content;
+    }
+
+    .type-trainer {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .type-nutritionist {
+      background: #fce7f3;
+      color: #9d174d;
+    }
+
+    .type-coach {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .pro-card h5 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.15rem;
+    }
+
+    .pro-card .specialty {
+      font-size: 0.83rem;
+      color: var(--mid-grey);
+      margin-bottom: 0.85rem;
+    }
+
+    .pro-card .bio {
+      font-size: 0.87rem;
+      color: #444;
+      line-height: 1.65;
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+
+    .pro-tags {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .pro-tag {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      border: 1px solid var(--light-grey);
+      color: var(--mid-grey);
+      background: var(--off-white);
+    }
+
+    .pro-card-divider {
+      border: none;
+      border-top: 1px dashed var(--light-grey);
+      margin-bottom: 1.25rem;
+    }
+
+    .btn-book {
+      display: inline-block;
+      padding: 0.65rem 1.5rem;
+      border-radius: 50px;
+      border: 2px solid var(--navy);
+      color: var(--navy);
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      width: fit-content;
+    }
+
+    .btn-book:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    /* Hidden card state for filtering */
+    .pro-col {
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .pro-col.hidden {
+      display: none;
+    }
+
+    /* ══════════════════════════════════════════
+       CTA BANNER
+   ***********/
+    .cta-banner {
+      background: var(--navy);
+      padding: 5rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(183, 190, 160, 0.07);
+      top: -200px;
+      left: -100px;
+      pointer-events: none;
+    }
+
+    .cta-banner::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(232, 209, 195, 0.06);
+      bottom: -100px;
+      right: -80px;
+      pointer-events: none;
+    }
+
+    .cta-banner h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-banner h2 em {
+      font-style: italic;
+      color: var(--sage);
+    }
+
+    .cta-banner p {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-sage {
+      display: inline-block;
+      background: var(--sage);
+      color: var(--navy);
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.2s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-sage:hover {
+      background: var(--sage-light);
+      transform: translateY(-2px);
+    }
+
+    /* ══════════════════════════════════════════
+       FOOTER
+   ***********/
+    .wellth-footer {
+      background: var(--navy);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 5rem 0 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1.7rem;
+      color: var(--white);
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .footer-logo .teal {
+      color: var(--teal);
+    }
+
+    .footer-tagline {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 280px;
+      margin-bottom: 1.75rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-social-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .footer-social-btn:hover {
+      background: var(--sage);
+      border-color: var(--sage);
+      color: var(--navy);
+    }
+
+    .footer-col-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .footer-links li a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links li a:hover {
+      color: var(--sage);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 4rem;
+      padding: 1.5rem 2.5rem;
+    }
+
+    .footer-bottom p {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.3);
+      margin: 0;
+    }
+
+    .footer-bottom .made-with i {
+      color: var(--blush);
+    }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+   ***********/
+    @media (max-width: 991.98px) {
+      .wellth-nav .container-fluid {
+        padding: 0 1.25rem;
+      }
+
+      .navbar-collapse {
+        padding: 1rem 0 1.25rem;
+        border-top: 1px solid var(--light-grey);
+        margin-top: 0.5rem;
+      }
+
+      .navbar-nav .nav-item .nav-link {
+        padding: 0.6rem 0.5rem;
+        border-radius: 0;
+        border-bottom: 1px solid var(--light-grey);
+      }
+
+      .nav-login {
+        margin-top: 1rem;
+      }
+
+      .filter-bar {
+        top: 58px;
+      }
+    }
+
+    /* Toast styles */
+    .toast-msg {
+      background: var(--white);
+      border-left: 4px solid var(--sage);
+      box-shadow: 0 10px 30px rgba(26, 35, 50, 0.12);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 300px;
+      pointer-events: auto;
+      animation: toastSlideIn 0.3s forwards;
+      border: 1px solid var(--light-grey);
+      border-left-width: 4px;
+      z-index: 1200;
+    }
+
+    .toast-msg.ok {
+      border-left-color: var(--teal);
+    }
+
+    .toast-msg.warn {
+      border-left-color: #f59e0b;
+    }
+
+    .toast-msg.removing {
+      animation: toastSlideOut 0.3s forwards;
+    }
+
+    .toast-icon {
+      font-size: 1.25rem;
+    }
+
+    .toast-body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .toast-body strong {
+      font-size: 0.9rem;
+      color: var(--navy);
+    }
+
+    .toast-body span {
+      font-size: 0.8rem;
+      color: var(--mid-grey);
+    }
+
+    @keyframes toastSlideIn {
+      from {
+        transform: translateX(120%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes toastSlideOut {
+      from {
+        transform: translateX(0);
+        opacity: 1;
+      }
+
+      to {
+        transform: translateX(120%);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════ NAVBAR ══════ -->
+  <nav class="wellth-nav navbar navbar-expand-lg" id="mainNav">
+    <div class="container-fluid">
+      <a class="navbar-brand nav-logo" href="index.html">
+        <div>
+          <img src="LOGO.png" alt="logo" class="logo-icon">
+        </div>
+        <div>WELL<span class="teal">TH</span></div>
+
+      </a>
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto gap-1">
+          <li class="nav-item"><a class="nav-link" href="wellth-workout.html">Workouts</a></li>
+          <li class="nav-item"><a class="nav-link active" href="wellth-professionals.html">Professionals</a></li>
+          <li class="nav-item"><a class="nav-link" href="wellth-budgeting.html">Budgeting</a></li>
+          <li class="nav-item"><a class="nav-link" href="wellth-meals.html">Meal Plans</a></li>
+          <li class="nav-item"><a class="nav-link" href="wellth-about.html">About Us</a></li>
+        </ul>
+        <a href="wellth-login.html" class="nav-login"><i class="bi bi-person"></i> Login</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ══════ PAGE HERO ══════ -->
+  <section class="page-hero">
+    <div class="section-pad page-hero-inner">
+      <p class="page-hero-tag">Expert guidance</p>
+      <h1>Meet your<br><em>wellness team</em></h1>
+      <p>Connect with certified trainers and nutritionists who understand your goals and build plans around your life.
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <strong>50+</strong>
+          <span>Professionals</span>
+        </div>
+        <div class="hero-stat">
+          <strong>12k+</strong>
+          <span>Sessions booked</span>
+        </div>
+        <div class="hero-stat">
+          <strong>98%</strong>
+          <span>Satisfaction rate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════ FILTER BAR ══════ -->
+  <div class="filter-bar">
+    <div class="section-pad">
+      <div class="filter-pills">
+        <button class="filter-pill active" data-filter="all">All</button>
+        <button class="filter-pill" data-filter="trainer">Trainers</button>
+        <button class="filter-pill" data-filter="nutritionist">Nutritionists</button>
+        <span class="filter-count" id="filterCount">Showing 9 professionals</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════ PROFESSIONALS GRID ══════ -->
+  <section class="professionals-grid">
+    <div class="section-pad">
+      <div class="row g-4" id="proGrid">
+
+        <!-- 1 -->
+        <div class="col-12 col-sm-6 col-lg-4 pro-col" data-type="trainer">
+          <div class="pro-card">
+            <div class="pro-card-photo tint-trainer">
+              <img src="./assets/professionals/alex.jpeg" alt="Alex Rivera">
+            </div>
+            <div class="pro-card-body">
+              <span class="pro-card-type type-trainer">Trainer</span>
+              <h5>Alex Rivera</h5>
+              <p class="specialty">Strength &amp; Weight Loss</p>
+              <p class="bio">7 years experience helping clients build sustainable fitness habits. Specialises in
+                progressive overload and body recomposition.</p>
+              <div class="pro-tags">
+                <span class="pro-tag">Strength</span>
+                <span class="pro-tag">HIIT</span>
+                <span class="pro-tag">Weight Loss</span>
+              </div>
+              <hr class="pro-card-divider" />
+              <a href="#" class="btn-book">Book a Session</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="col-12 col-sm-6 col-lg-4 pro-col" data-type="nutritionist">
+          <div class="pro-card">
+            <div class="pro-card-photo tint-nutritionist">
+              <img src="./assets/professionals/priya.jpeg" alt="Priya Sharma">
+            </div>
+            <div class="pro-card-body">
+              <span class="pro-card-type type-nutritionist">Nutritionist</span>
+              <h5>Priya Sharma</h5>
+              <p class="specialty">Clinical Nutrition &amp; Meal Planning</p>
+              <p class="bio">Registered dietitian with a focus on gut health and budget-conscious eating. Expert in
+                plant-based and balanced macro planning.</p>
+              <div class="pro-tags">
+                <span class="pro-tag">Meal Plans</span>
+                <span class="pro-tag">Gut Health</span>
+                <span class="pro-tag">Plant-Based</span>
+              </div>
+              <hr class="pro-card-divider" />
+              <a href="#" class="btn-book">Book a Consult</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="col-12 col-sm-6 col-lg-4 pro-col" data-type="trainer">
+          <div class="pro-card">
+            <div class="pro-card-photo tint-trainer">
+              <img src="./assets/professionals/mira.jpeg" alt="Marcus Lee">
+            </div>
+            <div class="pro-card-body">
+              <span class="pro-card-type type-trainer">Trainer</span>
+              <h5>Mira Lee</h5>
+              <p class="specialty">Cardio &amp; Endurance</p>
+              <p class="bio">Former marathon runner turned coach. Builds endurance programs for beginners and athletes
+                with a focus on long-term consistency.</p>
+              <div class="pro-tags">
+                <span class="pro-tag">Running</span>
+                <span class="pro-tag">Cardio</span>
+                <span class="pro-tag">Endurance</span>
+              </div>
+              <hr class="pro-card-divider" />
+              <a href="#" class="btn-book">Book a Session</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="col-12 col-sm-6 col-lg-4 pro-col" data-type="nutritionist">
+          <div class="pro-card">
+            <div class="pro-card-photo tint-nutritionist">
+              <img src="./assets/professionals/aisha.png" alt="Aisha Patel">
+            </div>
+            <div class="pro-card-body">
+              <span class="pro-card-type type-nutritionist">Nutritionist</span>
+              <h5>Aisha Patel</h5>
+              <p class="specialty">Sports Nutrition &amp; Recovery</p>
+              <p class="bio">Specialises in fuelling athletes and active individuals. Builds personalised plans that
+                optimise performance, recovery and body composition.</p>
+              <div class="pro-tags">
+                <span class="pro-tag">Sports Nutrition</span>
+                <span class="pro-tag">Recovery</span>
+                <span class="pro-tag">Macros</span>
+              </div>
+              <hr class="pro-card-divider" />
+              <a href="#" class="btn-book">Book a Consult</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="col-12 col-sm-6 col-lg-4 pro-col" data-type="trainer">
+          <div class="pro-card">
+            <div class="pro-card-photo tint-trainer">
+              <img src="./assets/professionals/jodan.png" alt="Jordan Kim">
+            </div>
+            <div class="pro-card-body">
+              <span class="pro-card-type type-trainer">Trainer</span>
+              <h5>Jordan Kim</h5>
+              <p class="specialty">Mobility &amp; Flexibility</p>
+              <p class="bio">Certified yoga instructor and movement coach. Helps clients improve posture, reduce pain
+                and move with ease through targeted mobility work.</p>
+              <div class="pro-tags">
+                <span class="pro-tag">Yoga</span>
+                <span class="pro-tag">Mobility</span>
+                <span class="pro-tag">Posture</span>
+              </div>
+              <hr class="pro-card-divider" />
+              <a href="#" class="btn-book">Book a Session</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="col-12 col-sm-6 col-lg-4 pro-col" data-type="trainer">
+          <div class="pro-card">
+            <div class="pro-card-photo tint-trainer">
+              <img src="./assets/professionals/sam.png" alt="Sam Okafor">
+            </div>
+            <div class="pro-card-body">
+              <span class="pro-card-type type-trainer">Trainer</span>
+              <h5>Sam Okafor</h5>
+              <p class="specialty">Calisthenics &amp; Bodyweight</p>
+              <p class="bio">Master of bodyweight training with 8 years coaching experience. Takes complete beginners to
+                advanced movement skills with a structured, no-fluff approach.</p>
+              <div class="pro-tags">
+                <span class="pro-tag">Calisthenics</span>
+                <span class="pro-tag">Beginners</span>
+                <span class="pro-tag">Skill Work</span>
+              </div>
+              <hr class="pro-card-divider" />
+              <a href="#" class="btn-book">Book a Session</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="col-12 col-sm-6 col-lg-4 pro-col" data-type="nutritionist">
+          <div class="pro-card">
+            <div class="pro-card-photo tint-nutritionist">
+              <img src="./assets/professionals/daniel.png" alt="Daniel Reyes">
+            </div>
+            <div class="pro-card-body">
+              <span class="pro-card-type type-nutritionist">Nutritionist</span>
+              <h5>Daniel Reyes</h5>
+              <p class="specialty">Weight Management &amp; Lifestyle</p>
+              <p class="bio">Takes a behavioural approach to nutrition - no fad diets, just sustainable habits. Works
+                with clients to fix their relationship with food for life.</p>
+              <div class="pro-tags">
+                <span class="pro-tag">Weight Loss</span>
+                <span class="pro-tag">Habits</span>
+                <span class="pro-tag">Mindful Eating</span>
+              </div>
+              <hr class="pro-card-divider" />
+              <a href="#" class="btn-book">Book a Consult</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="col-12 col-sm-6 col-lg-4 pro-col" data-type="trainer">
+          <div class="pro-card">
+            <div class="pro-card-photo tint-trainer">
+              <img src="./assets/professionals/leila.png" alt="Leila Hassan">
+            </div>
+            <div class="pro-card-body">
+              <span class="pro-card-type type-trainer">Trainer</span>
+              <h5>Leila Hassan</h5>
+              <p class="specialty">HIIT &amp; Functional Fitness</p>
+              <p class="bio">High-energy coach who designs HIIT and functional circuits that burn fat while building
+                real-world strength. Every session is efficient and intense.</p>
+              <div class="pro-tags">
+                <span class="pro-tag">HIIT</span>
+                <span class="pro-tag">Functional</span>
+                <span class="pro-tag">Fat Loss</span>
+              </div>
+              <hr class="pro-card-divider" />
+              <a href="#" class="btn-book">Book a Session</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="col-12 col-sm-6 col-lg-4 pro-col" data-type="nutritionist">
+          <div class="pro-card">
+            <div class="pro-card-photo tint-nutritionist">
+              <img src="./assets/professionals/nina.png" alt="Nina Torres">
+            </div>
+            <div class="pro-card-body">
+              <span class="pro-card-type type-nutritionist">Nutritionist</span>
+              <h5>Nina Torres</h5>
+              <p class="specialty">Family &amp; Budget Nutrition</p>
+              <p class="bio">Helps families eat well on a budget. Specialises in batch cooking, meal prepping and simple
+                swaps that make healthy eating affordable and delicious.</p>
+              <div class="pro-tags">
+                <span class="pro-tag">Budget Eating</span>
+                <span class="pro-tag">Family Plans</span>
+                <span class="pro-tag">Meal Prep</span>
+              </div>
+              <hr class="pro-card-divider" />
+              <a href="#" class="btn-book">Book a Consult</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════ CTA BANNER ══════ -->
+  <section class="cta-banner">
+    <div class="section-pad">
+      <h2>Not sure who to <em>start with?</em></h2>
+      <p>Tell us your goals and we'll match you with the right professional for free.</p>
+      <a href="#" class="btn-sage">Get Matched →</a>
+    </div>
+  </section>
+
+
+  <!-- ══════ FOOTER ══════ -->
+  <footer class="wellth-footer">
+    <div class="section-pad">
+      <div class="row g-5 justify-content-between">
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <a href="#" class="footer-logo">WELL<span class="teal">TH</span></a>
+          <p class="footer-tagline">Your all-in-one wellness companion. Track your progress, connect with experts, and
+            transform your life - one day at a time.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-btn"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="footer-social-btn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="footer-social-btn"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="footer-social-btn"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="col-6 col-sm-6 col-lg-2">
+          <p class="footer-col-title">Platform</p>
+          <ul class="footer-links">
+            <li><a href="#">Weight Tracking</a></li>
+            <li><a href="#">Fitness Plans</a></li>
+            <li><a href="#">Nutrition Log</a></li>
+            <li><a href="#">Expert Connect</a></li>
+            <li><a href="#">Progress Reports</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-sm-6 col-lg-2">
+          <p class="footer-col-title">Navigate</p>
+          <ul class="footer-links">
+            <li><a href="wellth-home.html">Home</a></li>
+            <li><a href="wellth-about.html">About</a></li>
+            <li><a href="wellth-workouts.html">Workouts</a></li>
+            <li><a href="wellth-professionals.html">Professionals</a></li>
+            <li><a href="wellth-meals.html">Meal Plans</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-sm-6 col-lg-2">
+          <p class="footer-col-title">Contact</p>
+          <ul class="footer-links">
+            <li><a href="#">Support Center</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+          <p>© 2026 WELLTH. All rights reserved.</p>
+          <p class="made-with">Made with <i class="bi bi-heart-fill"></i> for healthier lives</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════ BOOKING MODAL ══════ -->
+  <div class="modal fade" id="bookingModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content"
+        style="background-color: var(--off-white); border-radius: 20px; border: 1px solid var(--light-grey); overflow: hidden; box-shadow: 0 20px 50px rgba(26,35,50,0.15);">
+        <div class="modal-header"
+          style="border-bottom: 1px dashed var(--light-grey); padding: 1.5rem 2rem; background: var(--white);">
+          <h5 class="modal-title"
+            style="font-family: var(--font-serif); font-weight: 700; color: var(--navy); font-size: 1.5rem;"
+            id="modalTitle">Book a Session</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            style="box-shadow: none;"></button>
+        </div>
+        <div class="modal-body" style="padding: 2rem;">
+          <form id="bookingForm">
+            <input type="hidden" id="bookingProName">
+
+            <div class="mb-3">
+              <label class="form-label"
+                style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid-grey);">Select
+                Date</label>
+              <input type="date" class="form-control" id="bookingDate" required
+                style="border-radius: 8px; border: 1.5px solid var(--light-grey); padding: 10px 15px; font-size: 0.9rem; background: var(--white);">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label"
+                style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid-grey);">Select
+                Time Slot</label>
+              <select class="form-select" id="bookingTime" required
+                style="border-radius: 8px; border: 1.5px solid var(--light-grey); padding: 10px 15px; font-size: 0.9rem; background: var(--white);">
+                <option value="09:00 AM">09:00 AM - 10:00 AM</option>
+                <option value="11:00 AM">11:00 AM - 12:00 PM</option>
+                <option value="02:00 PM">02:00 PM - 03:00 PM</option>
+                <option value="04:00 PM" selected>04:00 PM - 05:00 PM</option>
+                <option value="06:00 PM">06:00 PM - 07:00 PM</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label"
+                style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid-grey);">Personal
+                Goals or Notes (Optional)</label>
+              <textarea class="form-control" id="bookingNotes" rows="3"
+                placeholder="e.g. Discuss nutrition macro goals, muscle training guidance..."
+                style="border-radius: 8px; border: 1.5px solid var(--light-grey); padding: 10px 15px; font-size: 0.9rem; background: var(--white); resize: none;"></textarea>
+            </div>
+
+            <button type="submit" class="btn w-100"
+              style="background: var(--navy); color: var(--white); border-radius: 50px; padding: 12px; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; border: none; margin-top: 1rem; transition: background 0.2s;">Confirm
+              Booking</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Stack for elegant notifications -->
+  <div class="toast-stack" id="toastStack"
+    style="position: fixed; bottom: 2rem; right: 2rem; z-index: 1300; display: flex; flex-direction: column; gap: 0.75rem; pointer-events: none;">
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Navbar scroll shadow
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    // Filter pills
+    const pills = document.querySelectorAll('.filter-pill');
+    const cols = document.querySelectorAll('.pro-col');
+    const countEl = document.getElementById('filterCount');
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+
+        const filter = pill.dataset.filter;
+        let visible = 0;
+
+        cols.forEach(col => {
+          const match = filter === 'all' || col.dataset.type === filter;
+          col.classList.toggle('hidden', !match);
+          if (match) visible++;
+        });
+
+        const label = filter === 'all'
+          ? 'professionals'
+          : filter === 'trainer' ? 'trainers' : 'nutritionists';
+        countEl.textContent = `Showing ${visible} ${label}`;
+      });
+    });
+
+    // ── Bookings API Integration ──
+
+    // Add click listeners to book buttons
+    const bookButtons = document.querySelectorAll('.btn-book');
+    bookButtons.forEach(btn => {
+      btn.setAttribute('href', 'javascript:void(0)');
+      btn.addEventListener('click', () => {
+        const cardBody = btn.closest('.pro-card-body');
+        const proName = cardBody.querySelector('h5').innerText;
+
+        document.getElementById('bookingProName').value = proName;
+        document.getElementById('modalTitle').innerText = `Book with ${proName}`;
+
+        // Open the bootstrap modal
+        const myModal = new bootstrap.Modal(document.getElementById('bookingModal'));
+        myModal.show();
+      });
+    });
+
+    // Handle form submit
+    const bookingForm = document.getElementById('bookingForm');
+    bookingForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const proName = document.getElementById('bookingProName').value;
+      const date = document.getElementById('bookingDate').value;
+      const time = document.getElementById('bookingTime').value;
+      const notes = document.getElementById('bookingNotes').value;
+
+      try {
+        const response = await fetch('/api/bookings', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            professionalName: proName,
+            date: date,
+            time: time,
+            notes: notes
+          })
+        });
+
+        if (response.ok) {
+          const modalInstance = bootstrap.Modal.getInstance(document.getElementById('bookingModal'));
+          modalInstance.hide();
+          bookingForm.reset();
+          showToast('ok', '🎉', 'Session Booked!', `Your booking with ${proName} is confirmed.`);
+        } else {
+          showToast('warn', '⚠️', 'Server Error', 'Failed to confirm booking with server.');
+        }
+      } catch (err) {
+        console.error('Error confirming booking:', err);
+        showToast('warn', '⚠️', 'Network Error', 'Could not reach the backend.');
+      }
+    });
+
+    // Toast helper
+    function showToast(type, icon, title, msg) {
+      const stack = document.getElementById('toastStack');
+      const toast = document.createElement('div');
+      toast.className = `toast-msg ${type}`;
+      toast.innerHTML = `
+        <span class="toast-icon">${icon}</span>
+        <div class="toast-body">
+          <strong>${title}</strong>
+          <span>${msg}</span>
+        </div>
+      `;
+      stack.appendChild(toast);
+      setTimeout(() => {
+        toast.classList.add('removing');
+        setTimeout(() => toast.remove(), 300);
+      }, 4000);
+    }
+  </script>
+
+</body>
+
+</html>

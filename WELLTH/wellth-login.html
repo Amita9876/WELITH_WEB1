@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login & Sign Up - WELLTH</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --navy: #1a2332;
+            --white: #ffffff;
+            --off-white: #f8f6f3;
+            --sage: #b7bea0;
+            --teal: #2ec4b6;
+            --mid-grey: #6b7280;
+            --light-grey: #e5e7eb;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'DM Sans', sans-serif;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: var(--font-sans);
+            overflow: hidden; /* Keeps it a single-screen experience */
+        }
+
+        .split-container {
+            display: flex;
+            height: 100vh;
+            width: 100%;
+        }
+
+        /* ══════ LEFT SIDE: BRANDING ══════ */
+        .brand-side {
+            flex: 1;
+            background-color: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            position: relative;
+            padding: 4rem;
+        }
+
+        .brand-side::before {
+            content: '';
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .brand-content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .brand-logo {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .brand-logo span { color: var(--teal); }
+
+        .brand-text {
+            font-size: 1.1rem;
+            max-width: 320px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        /* ══════ RIGHT SIDE: FORMS ══════ */
+        .form-side {
+            flex: 1;
+            background-color: var(--off-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem;
+            position: relative;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 2rem;
+            right: 3rem;
+            text-decoration: none;
+            color: var(--mid-grey);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .form-box {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .eyebrow {
+            color: var(--sage);
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        h2 {
+            font-family: var(--font-serif);
+            font-size: 2.8rem;
+            color: var(--navy);
+            margin-bottom: 2.5rem;
+        }
+
+        .form-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--mid-grey);
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .form-control {
+            border: none;
+            border-bottom: 1px solid var(--light-grey);
+            border-radius: 0;
+            padding: 12px 0;
+            background: transparent;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+            border-bottom: 1px solid var(--navy);
+            background: transparent;
+        }
+
+        .btn-continue {
+            background: #2a231e; /* Darker coffee/charcoal like your image */
+            color: var(--white);
+            width: 100%;
+            padding: 15px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            border: none;
+            margin-top: 1rem;
+            transition: opacity 0.3s;
+        }
+
+        .btn-continue:hover { opacity: 0.9; color: white; }
+
+        .switch-text {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: var(--mid-grey);
+        }
+
+        .switch-text a {
+            color: var(--navy);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        /* ══════ RESPONSIVE ══════ */
+        @media (max-width: 992px) {
+            .split-container { flex-direction: column; overflow: auto; }
+            .brand-side { padding: 4rem 2rem; height: 300px; flex: none; }
+            .brand-side::before { width: 250px; height: 250px; }
+            .form-side { padding: 4rem 2rem; }
+        }
+
+        /* Clerk Setup Notification Banner */
+        .clerk-setup-banner {
+            background-color: rgba(254, 243, 199, 0.5);
+            border: 1px solid rgba(251, 191, 36, 0.4);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            color: #b45309;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+        .clerk-setup-banner i {
+            font-size: 1.1rem;
+            color: #d97706;
+            margin-top: 0.1rem;
+        }
+        .clerk-setup-banner a {
+            color: #d97706;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+        .clerk-setup-banner a:hover {
+            color: #b45309;
+        }
+        .clerk-setup-banner code {
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 0.1rem 0.3rem;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #1a2332;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="split-container">
+        
+        <section class="brand-side">
+            <div class="brand-content">
+                <div class="brand-logo">WELL<span>TH</span></div>
+                <p class="brand-text" id="brandDynamicText">
+                    Connect with certified experts and take control of your health and wealth today.
+                </p>
+            </div>
+        </section>
+
+        <section class="form-side">
+            <a href="wellth-home.html" class="back-link">← Back to home</a>
+
+            <div class="form-box">
+                <span class="eyebrow" id="eyebrowText">Welcome Back</span>
+                <h2 id="mainHeading">Sign in</h2>
+
+                <form id="authForm">
+                    <div id="signupFields" style="display: none;">
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="form-label">First Name</label>
+                                <input type="text" class="form-control" placeholder="First Name">
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" class="form-control" placeholder="Last Name">
+                            </div>
+                        </div>
+                    </div>
+
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-control" placeholder="your@email.com" required>
+
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" placeholder="Your password" required>
+
+                    <button type="submit" class="btn btn-continue" id="submitBtn">Continue</button>
+                </form>
+
+                <div class="switch-text">
+                    <span id="footerText">Don't have an account?</span> 
+                    <a href="javascript:void(0)" onclick="toggleMode()" id="switchBtn">Create one</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <script>
+        // ==========================================
+        // CONFIGURATION: Set your Clerk Publishable Key here
+        // ==========================================
+        const CLERK_PUBLISHABLE_KEY = 'pk_test_YW1wbGUtZGluZ28tMTYuY2xlcmsuYWNjb3VudHMuZGV2JA'; 
+
+        let isLogin = true;
+
+        // Dynamic script loader helper with promise
+        function loadScript(src) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = src;
+                script.async = true;
+                script.crossOrigin = 'anonymous';
+                script.onload = resolve;
+                script.onerror = (e) => reject(new Error(`Failed to load script: ${src}`));
+                document.head.appendChild(script);
+            });
+        }
+
+        function toggleMode() {
+            isLogin = !isLogin;
+            
+            const eyebrow = document.getElementById('eyebrowText');
+            const heading = document.getElementById('mainHeading');
+            const signupFields = document.getElementById('signupFields');
+            const submitBtn = document.getElementById('submitBtn');
+            const footerText = document.getElementById('footerText');
+            const switchBtn = document.getElementById('switchBtn');
+            const brandText = document.getElementById('brandDynamicText');
+
+            if (isLogin) {
+                eyebrow.innerText = "Welcome Back";
+                heading.innerText = "Sign in";
+                signupFields.style.display = "none";
+                submitBtn.innerText = "Continue";
+                footerText.innerText = "Don't have an account?";
+                switchBtn.innerText = "Create one";
+                brandText.innerText = "Connect with certified experts and take control of your health and wealth today.";
+            } else {
+                eyebrow.innerText = "Join Us";
+                heading.innerText = "Create account";
+                signupFields.style.display = "block";
+                submitBtn.innerText = "Create Account";
+                footerText.innerText = "Already have an account?";
+                switchBtn.innerText = "Sign in";
+                brandText.innerText = "Start your journey. Get personalized plans and track your progress in one place.";
+            }
+        }
+
+        // Initialize Clerk Authentication Integration
+        async function initClerk() {
+            const hasValidKey = CLERK_PUBLISHABLE_KEY && 
+                                CLERK_PUBLISHABLE_KEY.startsWith('pk_');
+
+            const formBox = document.querySelector('.form-box');
+
+            if (!hasValidKey) {
+                // If Clerk key is not set, add a beautiful helpful banner to assist in configuration,
+                // and keep the premium design prototype login form working!
+                const banner = document.createElement('div');
+                banner.className = 'clerk-setup-banner';
+                banner.innerHTML = `
+                    <i class="bi bi-info-circle-fill"></i>
+                    <div>
+                        <strong>Clerk Auth Mode:</strong> To connect secure user login, open <code>wellth-login.html</code> and configure your <code>CLERK_PUBLISHABLE_KEY</code>.
+                        Get your API key at <a href="https://clerk.com" target="_blank">clerk.com</a>.
+                    </div>
+                `;
+                formBox.insertBefore(banner, formBox.firstChild);
+                return;
+            }
+
+            try {
+                // Load Clerk SDK dynamically with primary CDN and backup CDN fallback
+                if (typeof window.Clerk === 'undefined') {
+                    try {
+                        // Primary CDN: Official Clerk Host
+                        await loadScript('https://js.clerk.com/v1/clerk.browser.js');
+                    } catch (primaryError) {
+                        console.warn('Primary Clerk CDN (js.clerk.com) failed to load due to network/DNS restriction. Trying fallback CDN (jsDelivr)...');
+                        // Fallback CDN: jsDelivr (global, highly available CDN)
+                        await loadScript('https://cdn.jsdelivr.net/npm/@clerk/clerk-js@5/dist/clerk.browser.js');
+                    }
+                }
+
+                const Clerk = window.Clerk;
+                await Clerk.load({
+                    publishableKey: CLERK_PUBLISHABLE_KEY
+                });
+
+                if (Clerk.user) {
+                    // Redirect authenticated user to home page
+                    window.location.href = 'wellth-home.html';
+                    return;
+                }
+
+                // If Clerk initialized successfully, replace the prototype form box with Clerk's component
+                formBox.innerHTML = `
+                    <a href="wellth-home.html" class="back-link">← Back to home</a>
+                    <div id="clerk-auth-mount" style="width: 100%; display: flex; justify-content: center;"></div>
+                `;
+
+                // Customize the Clerk appearance to match WELLTH's aesthetic (Navy, Teal, Serif/Sans fonts)
+                Clerk.mountSignIn(document.getElementById('clerk-auth-mount'), {
+                    appearance: {
+                        variables: {
+                            colorPrimary: '#2ec4b6',
+                            colorBackground: '#f8f6f3',
+                            colorText: '#1a2332',
+                            fontFamily: "'DM Sans', sans-serif"
+                        },
+                        elements: {
+                            card: {
+                                boxShadow: 'none',
+                                border: 'none',
+                                background: 'transparent',
+                                padding: '0'
+                            },
+                            headerTitle: {
+                                fontFamily: "'Playfair Display', Georgia, serif",
+                                fontSize: '2.5rem',
+                                color: '#1a2332',
+                                fontWeight: '700'
+                            },
+                            headerSubtitle: {
+                                color: '#6b7280'
+                            },
+                            socialButtonsBlockButton: {
+                                borderColor: '#e5e7eb',
+                                color: '#1a2332'
+                            },
+                            formButtonPrimary: {
+                                backgroundColor: '#1a2332',
+                                hoverBackgroundColor: '#2ec4b6',
+                                borderRadius: '4px',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.15em',
+                                fontSize: '0.8rem',
+                                fontWeight: '600'
+                            }
+                        }
+                    }
+                });
+
+            } catch (error) {
+                console.error('Failed to load Clerk Auth:', error);
+                // Fall back gracefully to the original prototype form
+            }
+        }
+
+        window.addEventListener('load', initClerk);
+    </script>
+
+</body>
+</html>

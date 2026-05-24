@@ -1,0 +1,225 @@
+{
+  "transactions": [],
+  "mealPlans": [
+    {
+      "id": "t090go0teh",
+      "day": "Monday",
+      "mealType": "Breakfast",
+      "mealName": "oatmeal",
+      "calories": 200,
+      "tags": []
+    },
+    {
+      "id": "ghahr3gi2m",
+      "day": "Monday",
+      "mealType": "Breakfast",
+      "mealName": "Lean Chicken Hyderabadi Biryani",
+      "calories": 0,
+      "tags": [
+        "CALORIE SMART",
+        "STRENGTH"
+      ]
+    },
+    {
+      "id": "tj02vazsk4",
+      "day": "Monday",
+      "mealType": "Breakfast",
+      "mealName": "Lean Chicken Hyderabadi Biryani",
+      "calories": 300,
+      "tags": [
+        "CALORIE SMART",
+        "STRENGTH"
+      ]
+    },
+    {
+      "id": "e0ioc21a5p",
+      "day": "Monday",
+      "mealType": "Breakfast",
+      "mealName": "Goan Prawn Curry",
+      "calories": 900,
+      "tags": [
+        "CALORIE SMART",
+        "HIGH PROTEIN"
+      ]
+    },
+    {
+      "id": "xhaq1ovxwz",
+      "day": "Monday",
+      "mealType": "Dinner",
+      "mealName": "Goan Prawn Curry",
+      "calories": 900,
+      "tags": [
+        "CALORIE SMART",
+        "HIGH PROTEIN"
+      ]
+    },
+    {
+      "id": "b7a0iwibi5",
+      "day": "Monday",
+      "mealType": "Dinner",
+      "mealName": "Lean Chicken Hyderabadi Biryani",
+      "calories": 420,
+      "tags": [
+        "CALORIE SMART",
+        "STRENGTH"
+      ]
+    },
+    {
+      "id": "x3ctw3l5ib",
+      "day": "Monday",
+      "mealType": "Dinner",
+      "mealName": "Goan Prawn Curry",
+      "calories": 420,
+      "tags": [
+        "CALORIE SMART",
+        "HIGH PROTEIN"
+      ]
+    },
+    {
+      "id": "iw3ybcxv4q",
+      "day": "Monday",
+      "mealType": "Breakfast",
+      "mealName": "Lean Chicken Hyderabadi Biryani",
+      "calories": 420,
+      "tags": [
+        "CALORIE SMART",
+        "STRENGTH"
+      ]
+    },
+    {
+      "id": "80v4nzxxr2",
+      "day": "Monday",
+      "mealType": "Breakfast",
+      "mealName": "Tadka Dal & Quinoa Khichdi",
+      "calories": 400,
+      "tags": [
+        "LOW CARB",
+        "FIBER FILLED"
+      ]
+    }
+  ],
+  "workoutRoutines": [
+    {
+      "id": "6wnqin8baj",
+      "routineName": "Cardio Burn HIIT",
+      "duration": "30 mins",
+      "difficulty": "Intermediate",
+      "calories": 400,
+      "exercises": "Burpees, Jump Squats, High Knees, Mountain Climbers"
+    },
+    {
+      "id": "q0domov9h1",
+      "routineName": "Heavy Weight Master",
+      "duration": "60 mins",
+      "difficulty": "Advanced",
+      "calories": 500,
+      "exercises": "Squats, Deadlifts, Bench Press, Rows"
+    },
+    {
+      "id": "9q6i9alksg",
+      "routineName": "Cardio Burn HIIT",
+      "duration": "30 mins",
+      "difficulty": "Intermediate",
+      "calories": 400,
+      "exercises": "Burpees, Jump Squats, High Knees, Mountain Climbers"
+    },
+    {
+      "id": "md8hjudali",
+      "routineName": "Cardio Burn HIIT",
+      "duration": "30 mins",
+      "difficulty": "Intermediate",
+      "calories": 400,
+      "exercises": "Burpees, Jump Squats, High Knees, Mountain Climbers"
+    },
+    {
+      "id": "2rx4fmtz7f",
+      "routineName": "Cardio Burn HIIT",
+      "duration": "30 mins",
+      "difficulty": "Intermediate",
+      "calories": 400,
+      "exercises": "Burpees, Jump Squats, High Knees, Mountain Climbers"
+    },
+    {
+      "id": "kistsh95ai",
+      "routineName": "Bodyweight Basics",
+      "duration": "45 mins",
+      "difficulty": "Beginner",
+      "calories": 300,
+      "exercises": "Push-ups, Pull-ups, Dips, Lunges, Plank"
+    },
+    {
+      "id": "zu8b1vuaeu",
+      "routineName": "Heavy Weight Master",
+      "duration": "60 mins",
+      "difficulty": "Advanced",
+      "calories": 500,
+      "exercises": "Squats, Deadlifts, Bench Press, Rows"
+    },
+    {
+      "id": "6y8wg7d14i",
+      "routineName": "hiit",
+      "duration": "45 mins",
+      "difficulty": "Intermediate",
+      "calories": 0,
+      "exercises": "Custom routine"
+    },
+    {
+      "id": "jwnn00no30",
+      "routineName": "hiit",
+      "duration": "45 mins",
+      "difficulty": "Intermediate",
+      "calories": 300,
+      "exercises": "Custom routine"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "v3g7ppooqb",
+      "professionalName": "Priya Sharma",
+      "date": "2026-05-24",
+      "time": "04:00 PM",
+      "notes": "",
+      "status": "confirmed"
+    },
+    {
+      "id": "56vk7c5nvj",
+      "professionalName": "Priya Sharma",
+      "date": "2026-05-24",
+      "time": "04:00 PM",
+      "notes": "",
+      "status": "confirmed"
+    },
+    {
+      "id": "vyo9p07q8m",
+      "professionalName": "Marcus Lee",
+      "date": "2026-05-23",
+      "time": "04:00 PM",
+      "notes": "",
+      "status": "confirmed"
+    },
+    {
+      "id": "qhnmo7648b",
+      "professionalName": "Priya Sharma",
+      "date": "2026-05-24",
+      "time": "04:00 PM",
+      "notes": "",
+      "status": "confirmed"
+    },
+    {
+      "id": "rn8y7d7p45",
+      "professionalName": "Marcus Lee",
+      "date": "2026-05-23",
+      "time": "04:00 PM",
+      "notes": "",
+      "status": "confirmed"
+    },
+    {
+      "id": "7qld07nnv3",
+      "professionalName": "Priya Sharma",
+      "date": "2026-05-24",
+      "time": "04:00 PM",
+      "notes": "",
+      "status": "confirmed"
+    }
+  ]
+}
