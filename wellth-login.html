@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login & Sign Up - WELLTH</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,400;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --navy: #1a2332;
+            --white: #ffffff;
+            --off-white: #f8f6f3;
+            --sage: #b7bea0;
+            --teal: #2ec4b6;
+            --mid-grey: #6b7280;
+            --light-grey: #e5e7eb;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'DM Sans', sans-serif;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: var(--font-sans);
+            overflow: hidden;
+        }
+
+        .split-container {
+            display: flex;
+            height: 100vh;
+            width: 100%;
+        }
+
+        /* ══════ LEFT SIDE: BRANDING ══════ */
+        .brand-side {
+            flex: 1;
+            background-color: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            position: relative;
+            padding: 4rem;
+        }
+
+        .brand-side::before {
+            content: '';
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .brand-content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .brand-logo {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .brand-logo span { color: var(--teal); }
+
+        .brand-text {
+            font-size: 1.1rem;
+            max-width: 320px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        /* ══════ RIGHT SIDE: FORMS ══════ */
+        .form-side {
+            flex: 1;
+            background-color: var(--off-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem;
+            position: relative;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 2rem;
+            right: 3rem;
+            text-decoration: none;
+            color: var(--mid-grey);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            z-index: 10;
+        }
+
+        .form-box {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .eyebrow {
+            color: var(--sage);
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        h2 {
+            font-family: var(--font-serif);
+            font-size: 2.8rem;
+            color: var(--navy);
+            margin-bottom: 2.5rem;
+        }
+
+        .form-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--mid-grey);
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .form-control {
+            border: none;
+            border-bottom: 1px solid var(--light-grey);
+            border-radius: 0;
+            padding: 12px 0;
+            background: transparent;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+            border-bottom: 1px solid var(--navy);
+            background: transparent;
+        }
+
+        .btn-continue {
+            background: #2a231e;
+            color: var(--white);
+            width: 100%;
+            padding: 15px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            border: none;
+            margin-top: 1rem;
+            transition: opacity 0.3s;
+        }
+
+        .btn-continue:hover { opacity: 0.9; color: white; }
+
+        .switch-text {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: var(--mid-grey);
+        }
+
+        .switch-text a {
+            color: var(--navy);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        /* ══════ RESPONSIVE ══════ */
+        @media (max-width: 992px) {
+            .split-container { flex-direction: column; overflow: auto; }
+            .brand-side { padding: 4rem 2rem; height: 300px; flex: none; }
+            .brand-side::before { width: 250px; height: 250px; }
+            .form-side { padding: 4rem 2rem; }
+        }
+
+        /* Clerk Setup Notification Banner */
+        .clerk-setup-banner {
+            background-color: rgba(254, 243, 199, 0.5);
+            border: 1px solid rgba(251, 191, 36, 0.4);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            color: #b45309;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+        .clerk-setup-banner i {
+            font-size: 1.1rem;
+            color: #d97706;
+            margin-top: 0.1rem;
+        }
+        .clerk-setup-banner a {
+            color: #d97706;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+        .clerk-setup-banner a:hover { color: #b45309; }
+        .clerk-setup-banner code {
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 0.1rem 0.3rem;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #1a2332;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="split-container">
+        
+        <section class="brand-side">
+            <div class="brand-content">
+                <div class="brand-logo">WELL<span>TH</span></div>
+                <p class="brand-text" id="brandDynamicText">
+                    Connect with certified experts and take control of your health and wealth today.
+                </p>
+            </div>
+        </section>
+
+        <section class="form-side">
+            <a href="wellth-home.html" class="back-link">← Back to home</a>
+
+            <div class="form-box" id="authContainer">
+                <span class="eyebrow" id="eyebrowText">Welcome Back</span>
+                <h2 id="mainHeading">Sign in</h2>
+
+                <form id="authForm">
+                    <div id="formError" class="text-danger mb-3" style="display: none;"></div>
+                    <div id="signupFields" style="display: none;">
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="form-label">First Name</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="First Name">
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" id="lastName" class="form-control" placeholder="Last Name">
+                            </div>
+                        </div>
+                    </div>
+
+                    <label class="form-label">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="your@email.com" required>
+
+                    <label class="form-label">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Your password" required>
+
+                    <button type="submit" class="btn btn-continue" id="submitBtn">Continue</button>
+                </form>
+
+                <div class="switch-text" id="switchContainer">
+                    <span id="footerText">Don't have an account?</span> 
+                    <a href="javascript:void(0)" onclick="toggleMode()" id="switchBtn">Create one</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        let isLogin = true;
+        const USER_STORAGE_KEY = 'wellthUsers';
+        const CURRENT_USER_KEY = 'wellthCurrentUser';
+
+        function getStoredUsers() {
+            const raw = localStorage.getItem(USER_STORAGE_KEY);
+            try {
+                return raw ? JSON.parse(raw) : [];
+            } catch (err) {
+                console.warn('Invalid stored users data:', err);
+                localStorage.removeItem(USER_STORAGE_KEY);
+                return [];
+            }
+        }
+
+        function saveUsers(users) {
+            localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(users));
+        }
+
+        function saveCurrentUser(user) {
+            localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(user));
+        }
+
+        function clearCurrentUser() {
+            localStorage.removeItem(CURRENT_USER_KEY);
+        }
+
+        function getCurrentUser() {
+            const raw = localStorage.getItem(CURRENT_USER_KEY);
+            try {
+                return raw ? JSON.parse(raw) : null;
+            } catch (err) {
+                localStorage.removeItem(CURRENT_USER_KEY);
+                return null;
+            }
+        }
+
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function validatePassword(password) {
+            return password && password.length >= 6;
+        }
+
+        function showError(message) {
+            const errorEl = document.getElementById('formError');
+            errorEl.innerText = message;
+            errorEl.style.display = message ? 'block' : 'none';
+        }
+
+        function clearFormError() {
+            showError('');
+        }
+
+        function isEmailRegistered(email) {
+            return getStoredUsers().some(user => user.email === email);
+        }
+
+        function registerUser(firstName, lastName, email, password) {
+            const users = getStoredUsers();
+            const newUser = { firstName, lastName, email, password };
+            users.push(newUser);
+            saveUsers(users);
+            saveCurrentUser(newUser);
+        }
+
+        function authenticateUser(email, password) {
+            const user = getStoredUsers().find(user => user.email === email && user.password === password);
+            if (user) {
+                saveCurrentUser(user);
+            }
+            return user;
+        }
+
+        // Toggle handling for the Standard HTML form layout
+        function toggleMode() {
+            isLogin = !isLogin;
+            
+            const eyebrow = document.getElementById('eyebrowText');
+            const heading = document.getElementById('mainHeading');
+            const signupFields = document.getElementById('signupFields');
+            const submitBtn = document.getElementById('submitBtn');
+            const footerText = document.getElementById('footerText');
+            const switchBtn = document.getElementById('switchBtn');
+            const brandText = document.getElementById('brandDynamicText');
+
+            if (isLogin) {
+                eyebrow.innerText = "Welcome Back";
+                heading.innerText = "Sign in";
+                signupFields.style.display = "none";
+                submitBtn.innerText = "Continue";
+                footerText.innerText = "Don't have an account?";
+                switchBtn.innerText = "Create one";
+                brandText.innerText = "Connect with certified experts and take control of your health and wealth today.";
+            } else {
+                eyebrow.innerText = "Join Us";
+                heading.innerText = "Create account";
+                signupFields.style.display = "block";
+                submitBtn.innerText = "Create Account";
+                footerText.innerText = "Already have an account?";
+                switchBtn.innerText = "Sign in";
+                brandText.innerText = "Start your journey. Get personalized plans and track your progress in one place.";
+            }
+
+            clearFormError();
+        }
+
+        function processAuthForm(e) {
+            e.preventDefault();
+            clearFormError();
+
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim().toLowerCase();
+            const password = document.getElementById('password').value;
+
+            if (!email || !password) {
+                return showError('Please enter both email and password.');
+            }
+
+            if (!validateEmail(email)) {
+                return showError('Please enter a valid email address.');
+            }
+
+            if (!validatePassword(password)) {
+                return showError('Password must be at least 6 characters long.');
+            }
+
+            if (isLogin) {
+                const user = authenticateUser(email, password);
+                if (!user) {
+                    return showError('Login failed. Check your email and password.');
+                }
+                window.location.href = 'wellth-home.html';
+            } else {
+                if (!firstName || !lastName) {
+                    return showError('Please enter your first and last name.');
+                }
+                if (isEmailRegistered(email)) {
+                    return showError('An account with this email already exists. Please log in.');
+                }
+                registerUser(firstName, lastName, email, password);
+                window.location.href = 'wellth-home.html';
+            }
+        }
+
+        document.getElementById('authForm').addEventListener('submit', processAuthForm);
+
+        function redirectIfSignedIn() {
+            const user = getCurrentUser();
+            if (user) {
+                window.location.href = 'wellth-home.html';
+                return true;
+            }
+            return false;
+        }
+
+        window.addEventListener('load', redirectIfSignedIn);
+    </script>
+</body>
+</html>

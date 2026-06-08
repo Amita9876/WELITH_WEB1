@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About WELLTH</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy: #1a2332;
+      --white: #ffffff;
+      --off-white: #f8f6f3;
+      --sage: #b7bea0;
+      --sage-dark: #7a8264;
+      --sage-light: #d6dbc8;
+      --teal: #2ec4b6;
+      --mid-grey: #6b7280;
+      --light-grey: #e5e7eb;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'DM Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--font-sans); color: var(--navy); background: var(--white); }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; }
+
+    .wellth-nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--light-grey);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: box-shadow 0.3s ease;
+    }
+    .wellth-nav.scrolled { box-shadow: 0 2px 20px rgba(26,35,50,0.08); }
+    .wellth-nav .container-fluid { padding: 0 2.5rem; }
+    .nav-logo { font-family: var(--font-serif); font-weight: 700; font-size: 1.55rem; letter-spacing: 0.05em; color: var(--navy); display: flex; align-items: center; gap: 0.5rem; padding: 0.85rem 0; }
+    .nav-logo .teal { color: var(--teal); }
+    .nav-login { display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; font-weight: 500; color: var(--navy); padding: 0.5rem 1rem; border: 1.5px solid var(--navy); border-radius: 50px; }
+    .nav-login:hover { background: var(--navy); color: white; }
+    .navbar-nav .nav-link { color: var(--navy); font-weight: 500; padding: 0.55rem 1rem; }
+    .navbar-nav .nav-link.active, .navbar-nav .nav-link:hover { background: var(--sage-light); color: var(--navy); border-radius: 8px; }
+
+    .hero { background: radial-gradient(circle at top left, rgba(46,196,182,0.14), transparent 38%), linear-gradient(180deg, #f7f7f5 0%, #ffffff 100%); padding: 5rem 0 3rem; }
+    .hero h1 { font-family: var(--font-serif); font-size: clamp(2.8rem, 4vw, 4.2rem); margin-bottom: 1rem; line-height: 1.05; }
+    .hero p { max-width: 700px; color: var(--mid-grey); font-size: 1.05rem; }
+    .hero-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .hero-card { padding: 2rem; border-radius: 22px; background: var(--white); border: 1px solid var(--light-grey); box-shadow: 0 12px 40px rgba(26,35,50,0.06); }
+    .hero-card h3 { font-size: 1.35rem; margin-bottom: 0.75rem; }
+    .hero-card p { color: var(--mid-grey); }
+
+    .section { padding: 4rem 0; }
+    .section .section-title { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 1rem; }
+    .section .section-text { color: var(--mid-grey); max-width: 720px; margin-bottom: 2rem; }
+
+    .feature-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+    .feature-card { background: var(--off-white); border-radius: 20px; padding: 1.75rem; border: 1px solid rgba(107,114,128,0.12); }
+    .feature-card h4 { margin-bottom: 0.5rem; }
+    .feature-card p { color: var(--mid-grey); font-size: 0.95rem; }
+
+    .ai-form { gap: 1rem; }
+    .ai-form label { display: block; margin-bottom: 0.5rem; font-weight: 700; color: var(--navy); }
+    .ai-form .form-select, .ai-form .btn { border-radius: 12px; }
+    .ai-coach-card { background: var(--white); border-radius: 22px; border: 1px solid var(--light-grey); padding: 1.5rem; box-shadow: 0 16px 45px rgba(26,35,50,0.06); }
+    .ai-coach-card h4 { margin-bottom: 0.75rem; }
+    .ai-coach-card p { color: var(--mid-grey); }
+    .ai-badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.8rem; border-radius: 999px; background: rgba(46,196,182,0.12); color: var(--teal); font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; }
+
+    .footer { background: var(--navy); color: rgba(255,255,255,0.78); padding: 4rem 0 2rem; }
+    .footer a { color: rgba(255,255,255,0.72); }
+    .footer a:hover { color: var(--sage); }
+    .footer .footer-logo { font-family: var(--font-serif); font-weight: 700; font-size: 1.7rem; color: var(--white); }
+    .footer .footer-links { list-style: none; padding: 0; margin: 0; }
+    .footer .footer-links li { margin-bottom: 0.8rem; }
+
+    @media (max-width: 991.98px) {
+      .wellth-nav .container-fluid { padding: 0 1.25rem; }
+      .hero-grid, .feature-grid { grid-template-columns: 1fr; }
+    }
+    /* AI Coach styling */
+    .ai-hero { display: grid; grid-template-columns: 1fr 420px; gap: 2rem; align-items: center; }
+    .ai-hero .ai-copy h2 { font-size: 2.2rem; margin-bottom: 0.25rem; }
+    .ai-hero .ai-copy p.lead { color: #415057; font-size: 1.05rem; margin-bottom: 1rem; }
+    .ai-features { display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1rem; }
+    .ai-feature { background: linear-gradient(180deg,#ffffff, #f7fcfb); border-radius: 12px; padding: 0.6rem 0.9rem; display:inline-flex; gap:0.6rem; align-items:center; border:1px solid rgba(46,196,182,0.12); }
+    .ai-feature i { color: var(--teal); font-size: 1.05rem; }
+    .ai-avatar { width: 100%; max-width: 360px; margin: 0 auto; position: relative; }
+    .ai-avatar .avatar-box { background: linear-gradient(120deg,#2EC4B6,#00B4A2); border-radius: 18px; padding: 2rem; color: white; text-align:center; box-shadow: 0 18px 40px rgba(46,196,182,0.12); }
+    .ai-avatar .avatar-emoji { font-size: 3.6rem; display:block; }
+    .ai-cta { margin-top: 1.25rem; display:flex; gap:0.75rem; }
+    .ai-samples { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 1rem; }
+    .ai-sample { background: #fff; border-radius: 14px; padding: 0.85rem; border:1px solid rgba(16,24,32,0.04); box-shadow: 0 8px 30px rgba(13,18,23,0.04); }
+    .ai-badge { display:inline-block; background: rgba(46,196,182,0.12); color: var(--teal); padding: 0.35rem 0.6rem; border-radius: 999px; font-weight:700; font-size:0.85rem; }
+    .pulse { animation: pulse 2.2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(46,196,182,0.18);} 70% { box-shadow: 0 0 0 12px rgba(46,196,182,0);} 100% { box-shadow: 0 0 0 0 rgba(46,196,182,0);} }
+    .testimonial { background: linear-gradient(180deg,#f9fffb,#ffffff); padding: 1rem; border-radius: 12px; border:1px solid rgba(46,196,182,0.06); }
+    .add-btn { font-size: 0.9rem; padding: 0.38rem 0.6rem; }
+  </style>
+</head>
+<body>
+  <nav class="wellth-nav navbar navbar-expand-lg" id="mainNav">
+    <div class="container-fluid">
+      <a class="navbar-brand nav-logo" href="wellth-home.html">
+        <div><img src="LOGO.png" alt="logo" class="logo-icon" style="width:50px;"></div>
+        <div>WELL<span class="teal">TH</span></div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto gap-1">
+          <li class="nav-item"><a class="nav-link" href="wellth-home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="wellth-workout.html">Workouts</a></li>
+          <li class="nav-item"><a class="nav-link" href="wellth-professionals.html">Professionals</a></li>
+          <li class="nav-item"><a class="nav-link" href="wellth-budgeting.html">Budgeting</a></li>
+          <li class="nav-item"><a class="nav-link" href="wellth-meals.html">Meal Plans</a></li>
+          <li class="nav-item"><a class="nav-link active" href="wellth-about.html">About Us</a></li>
+        </ul>
+        <a href="wellth-login.html" class="nav-login"><i class="bi bi-person"></i> Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <h1>About WELLTH</h1>
+          <p>WELLTH is your all-in-one wellness companion. We bring together nutrition, workouts, expert guidance, and budgeting tools so you can build healthier habits with confidence.</p>
+        </div>
+        <div class="col-lg-5">
+          <div class="hero-card">
+            <h3>Our mission</h3>
+            <p>To make wellbeing simple and sustainable for every day, by helping you choose meals, routines and support that fit your lifestyle.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-grid mt-4">
+        <div class="hero-card">
+          <h3><i class="bi bi-heart-pulse-fill text-teal"></i> Personalized Nutrition</h3>
+          <p>Choose meal plans that match your goals, from calorie-smart to low-carb and high-protein options.</p>
+        </div>
+        <div class="hero-card">
+          <h3><i class="bi bi-bar-chart-line-fill text-teal"></i> Better Progress</h3>
+          <p>Track your routine, manage your weekly plan, and stay motivated with easy tools that keep you moving forward.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="aiCoach">
+      <div class="container">
+        <div class="ai-hero">
+          <div class="ai-copy">
+            <h2>Meet your AI Coach</h2>
+            <p class="lead">A friendly, on-demand coach that recommends meals, pairs workouts, and gives quick wellness tips tailored to you — instantly.</p>
+            <div class="ai-features">
+              <div class="ai-feature"><i class="bi bi-lightning-charge-fill"></i><span>Instant suggestions</span></div>
+              <div class="ai-feature"><i class="bi bi-heart-fill"></i><span>Personalized plans</span></div>
+              <div class="ai-feature"><i class="bi bi-calendar2-week"></i><span>7-day starter</span></div>
+            </div>
+
+            <div style="margin-top:1rem;">
+              <label for="aiGoal">Your goal</label>
+              <select id="aiGoal" class="form-select mb-2">
+                <option value="lose weight">Lose weight</option>
+                <option value="build muscle">Build muscle</option>
+                <option value="feel healthier">Feel healthier</option>
+              </select>
+              <label for="aiStyle">Eating style</label>
+              <select id="aiStyle" class="form-select">
+                <option value="i eat everything">I eat everything</option>
+                <option value="keto">Keto</option>
+                <option value="high protein">High protein</option>
+                <option value="low carb">Low carb</option>
+                <option value="fiber filled">Fiber filled</option>
+                <option value="flexitarian">Flexitarian</option>
+              </select>
+            </div>
+
+            <div class="ai-cta">
+              <button id="aiSuggestBtn" class="btn btn-navy">Try AI Coach</button>
+              <button id="start7Btn" class="btn btn-outline">Start 7-day plan</button>
+            </div>
+            <div style="margin-top:0.9rem;">
+              <small class="text-muted">No sign-up required — just try a quick recommendation.</small>
+            </div>
+          </div>
+
+          <div class="ai-avatar">
+            <div class="avatar-box pulse">
+              <div class="avatar-emoji">🤖</div>
+              <h4 style="margin:0.4rem 0 0.2rem;">WELLTH AI Coach</h4>
+              <div style="font-size:0.95rem; opacity:0.95;">Smart, friendly, and ready to guide you.</div>
+            </div>
+
+            <div class="ai-samples mt-3">
+              <div class="ai-sample">
+                <strong>Meal</strong>
+                <p id="aiMeal">—</p>
+                <button class="btn btn-outline add-btn" data-target="meal">Add</button>
+              </div>
+              <div class="ai-sample">
+                <strong>Workout</strong>
+                <p id="aiWorkout">—</p>
+                <button class="btn btn-outline add-btn" data-target="workout">Add</button>
+              </div>
+              <div class="ai-sample">
+                <strong>Tip</strong>
+                <p id="aiTip">—</p>
+                <button class="btn btn-outline add-btn" data-target="tip">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h5>What people say</h5>
+          <div class="row g-3 mt-2">
+            <div class="col-md-4">
+              <div class="testimonial">“The AI Coach suggested easy meals I actually liked — I felt results in two weeks.” — Priya</div>
+            </div>
+            <div class="col-md-4">
+              <div class="testimonial">“I loved the 7-day starter plan. It helped me stick to a routine.” — Marco</div>
+            </div>
+            <div class="col-md-4">
+              <div class="testimonial">“Fast, friendly, and realistic — the tips fit my busy week.” — Selena</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">What WELLTH does for you</h2>
+        <p class="section-text">WELLTH brings your wellness essentials together in one friendly place. Use the site to explore workouts, book professionals, plan meals, and track your progress without switching apps.</p>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h4>Meal planning</h4>
+            <p>Browse healthy meals, filter by dietary style, and add favorites directly to your weekly plan.</p>
+          </div>
+          <div class="feature-card">
+            <h4>Workout routines</h4>
+            <p>Discover exercise plans designed to help you feel stronger and more energized every week.</p>
+          </div>
+          <div class="feature-card">
+            <h4>AI recommendations</h4>
+            <p>Get smart suggestions for meals, workouts, and wellness tips based on your preferences and goals.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+ 
+
+    <section class="section" style="background: var(--off-white);">
+      <div class="container">
+        <h2 class="section-title">How to use WELLTH</h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="feature-card">
+              <h4>1. Explore</h4>
+              <p>Browse meal plans, workouts, and professional services to find what fits your goals.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <h4>2. Plan</h4>
+              <p>Add meals to your plan, save routines, and organize your week for better consistency.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <h4>3. Grow</h4>
+              <p>Use the support features and progress tracking to stay accountable and keep improving.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">AI suggestions we recommend</h2>
+        <p class="section-text">Our AI recommendations can help you choose the right path by combining your goals, your eating style, and the parts of wellness you care about most.</p>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h4>Smart meal matches</h4>
+            <p>See meals that fit your diet profile, such as low-carb, high-protein, or calorie-smart selections.</p>
+          </div>
+          <div class="feature-card">
+            <h4>Workout pairing</h4>
+            <p>Receive workout suggestions that complement your nutrition plan and recovery needs.</p>
+          </div>
+          <div class="feature-card">
+            <h4>Wellness tips</h4>
+            <p>Get habit-based advice for meal prep, hydration, sleep, and budgeting your wellness routine.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-md-4">
+          <a class="footer-logo" href="wellth-home.html">WELL<span class="teal">TH</span></a>
+          <p style="max-width: 320px; margin-top: 1rem; color: rgba(255,255,255,0.72);">A smarter wellness companion for everyday progress. Find food, fitness, and expert support in one place.</p>
+        </div>
+        <div class="col-md-2">
+          <p class="fw-bold text-white mb-3">Navigate</p>
+          <ul class="footer-links">
+            <li><a href="wellth-home.html">Home</a></li>
+            <li><a href="wellth-workout.html">Workouts</a></li>
+            <li><a href="wellth-professionals.html">Professionals</a></li>
+            <li><a href="wellth-meals.html">Meal Plans</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <p class="fw-bold text-white mb-3">Contact</p>
+          <ul class="footer-links">
+            <li><a href="#">Support Center</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-4 pt-4 border-top border-white-10 text-white-50" style="border-color: rgba(255,255,255,0.15) !important;">
+        <p class="mb-0">© 2026 WELLTH. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const nav = document.getElementById('mainNav');
+    if (nav) window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 10));
+
+    const mealMap = {
+      'lose weight': {
+        'keto': 'Keto Paneer Salad with cauliflower rice and fresh greens.',
+        'high protein': 'Grilled chicken bowl with quinoa, broccoli, and lemon tahini.',
+        'low carb': 'Spiced salmon bowl with roasted asparagus and avocado.',
+        'fiber filled': 'Chickpea and lentil bowl with mixed roasted vegetables.',
+        'flexitarian': 'Mixed vegetable curry with brown rice and a side salad.',
+        'i eat everything': 'Lean chicken biryani with low-fat raita and fresh cucumber salad.'
+      },
+      'build muscle': {
+        'keto': 'Seared steak with garlic butter and sautéed spinach.',
+        'high protein': 'Tandoori chicken bowl with lentils and roasted cauliflower.',
+        'low carb': 'Greek yogurt chicken shawarma bowl with mixed greens.',
+        'fiber filled': 'Paneer tikka bowl with quinoa and roasted veggies.',
+        'flexitarian': 'Egg and chickpea salad with whole grain flatbread.',
+        'i eat everything': 'Grilled fish platter with sweet potato mash and green beans.'
+      },
+      'feel healthier': {
+        'keto': 'Avocado and spinach salad with a citrus dressing.',
+        'high protein': 'Lentil soup with roasted pumpkin and spinach.',
+        'low carb': 'Zucchini noodle bowl with tofu and peanut sauce.',
+        'fiber filled': 'Mixed bean salad with kale, carrots, and seeds.',
+        'flexitarian': 'Roasted vegetable bowl with couscous and herb yogurt.',
+        'i eat everything': 'Seasonal vegetable stir-fry with brown rice and herbs.'
+      }
+    };
+
+    const workoutMap = {
+      'lose weight': '30-minute HIIT circuit with bodyweight moves and short recovery intervals.',
+      'build muscle': 'Strength routine focusing on legs, push, and pull exercises.',
+      'feel healthier': 'Low-impact mobility flow with stretching and light cardio.'
+    };
+
+    const tipMap = {
+      'lose weight': 'Focus on portion control, hydrate often, and choose whole foods over processed snacks.',
+      'build muscle': 'Eat enough protein, rest well, and keep your workouts consistent for steady gains.',
+      'feel healthier': 'Move daily, get quality sleep, and add more fiber-rich vegetables to meals.'
+    };
+
+    function generateAiRecommendations() {
+      const goal = document.getElementById('aiGoal').value;
+      const style = document.getElementById('aiStyle').value;
+      const meal = mealMap[goal][style] || mealMap[goal]['i eat everything'];
+      const workout = workoutMap[goal];
+      const tip = tipMap[goal];
+
+      document.getElementById('aiMeal').textContent = meal;
+      document.getElementById('aiWorkout').textContent = workout;
+      document.getElementById('aiTip').textContent = tip;
+    }
+
+    document.getElementById('aiSuggestBtn').addEventListener('click', () => {
+      generateAiRecommendations();
+      document.querySelectorAll('.ai-sample').forEach(el => el.classList.add('pulse'));
+      setTimeout(()=> document.querySelectorAll('.ai-sample').forEach(el => el.classList.remove('pulse')),1200);
+    });
+    window.addEventListener('load', generateAiRecommendations);
+
+    const startBtn = document.getElementById('start7Btn');
+    if (startBtn) startBtn.addEventListener('click', () => alert('Great! A simple 7-day starter plan has been added to your account (demo).'));
+
+    document.querySelectorAll('.add-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const target = e.currentTarget.getAttribute('data-target');
+        const original = e.currentTarget.textContent;
+        e.currentTarget.textContent = 'Saved';
+        e.currentTarget.classList.remove('btn-outline');
+        e.currentTarget.classList.add('btn-navy');
+        setTimeout(()=>{ e.currentTarget.textContent = original; e.currentTarget.classList.remove('btn-navy'); e.currentTarget.classList.add('btn-outline'); }, 1400);
+      });
+    });
+  </script>
+</body>
+</html>

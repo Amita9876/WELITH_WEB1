@@ -1,0 +1,27 @@
+{
+  "transactions": [],
+  "mealPlans": [
+    {
+      "id": "cr1gjuuy4g",
+      "day": "Monday",
+      "mealType": "Breakfast",
+      "mealName": "Zesty Chana Masala Bowl",
+      "calories": 300,
+      "tags": [
+        "FIBER FILLED",
+        "LOW CARB"
+      ]
+    }
+  ],
+  "workoutRoutines": [],
+  "bookings": [
+    {
+      "id": "nk1zdxn3a3",
+      "professionalName": "Priya Sharma",
+      "date": "2026-06-07",
+      "time": "04:00 PM",
+      "notes": "",
+      "status": "confirmed"
+    }
+  ]
+}
